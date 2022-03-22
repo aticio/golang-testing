@@ -4,19 +4,16 @@ import (
 	"testing"
 
 	"github.com/aticio/golang-testing/src/api/utils/sort"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSort(t *testing.T) {
 	elements := sort.GetElements(10)
 	Sort(elements)
 
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-
-	if elements[len(elements)-1] != 9 {
-		t.Error("last element should be 9")
-	}
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 0, elements[0])
+	assert.EqualValues(t, 0, elements[len(elements)-1])
 }
 
 func TestSortMoreThan10000(t *testing.T) {
