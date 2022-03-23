@@ -19,7 +19,7 @@ func GetCountry(countryId string) (*locations.Country, *errors.ApiError) {
 	if response == nil || response.Response == nil {
 		return nil, &errors.ApiError{
 			Status:  http.StatusInternalServerError,
-			Message: fmt.Sprintf("invalid restclient response when trying to get country %s", countryId),
+			Message: fmt.Sprintf("invalid rest client response when trying to get country %s", countryId),
 		}
 	}
 
@@ -28,7 +28,7 @@ func GetCountry(countryId string) (*locations.Country, *errors.ApiError) {
 		if err := json.Unmarshal(response.Bytes(), &apiErr); err != nil {
 			return nil, &errors.ApiError{
 				Status:  http.StatusInternalServerError,
-				Message: fmt.Sprintf("invalid error response when getting country %s", countryId),
+				Message: fmt.Sprintf("invalid error interface when getting country %s", countryId),
 			}
 		}
 		return nil, &apiErr
@@ -38,7 +38,7 @@ func GetCountry(countryId string) (*locations.Country, *errors.ApiError) {
 	if err := json.Unmarshal(response.Bytes(), &result); err != nil {
 		return nil, &errors.ApiError{
 			Status:  http.StatusInternalServerError,
-			Message: fmt.Sprintf("error when trying unmarshal country data for %s", countryId),
+			Message: fmt.Sprintf("error when trying to unmarshal country data for %s", countryId),
 		}
 	}
 
