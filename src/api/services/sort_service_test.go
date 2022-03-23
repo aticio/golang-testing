@@ -13,7 +13,7 @@ func TestSort(t *testing.T) {
 
 	assert.NotNil(t, elements)
 	assert.EqualValues(t, 0, elements[0])
-	assert.EqualValues(t, 0, elements[len(elements)-1])
+	assert.EqualValues(t, 9, elements[len(elements)-1])
 }
 
 func TestSortMoreThan10000(t *testing.T) {
