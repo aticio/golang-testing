@@ -1,14 +1,9 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/aticio/golang-testing/src/api/providers/locations_provider"
+	"github.com/aticio/golang-testing/src/api/app"
 )
 
 func main() {
-	country, err := locations_provider.GetCountry("TR")
-
-	fmt.Println(err)
-	fmt.Println(country)
+	app.StartApp()
 }
